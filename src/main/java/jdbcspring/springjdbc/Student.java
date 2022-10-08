@@ -1,6 +1,7 @@
 package jdbcspring.springjdbc;
 
 public class Student {
+	//isha bhadwi hai
 	private int id;
 	private String name;
 	private String city;
