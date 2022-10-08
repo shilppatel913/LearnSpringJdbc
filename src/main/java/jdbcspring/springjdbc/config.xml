@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+ >
+ 
+ 	<!-- Driver Manager Data Source Bean which implements DataSource interface -->
+ 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="driver1">
+ 	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+ 	<property name="url" value="jdbc:mysql://localhost:3306/springjdbc"></property>
+ 	<property name="username" value="root"></property>
+ 	<property name="password" value="Sql@1234"></property>
+ 	</bean>
+ 	
+ <!-- 	jdbctemplate bean -->
+ 	<bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbc1">
+ 		<property name="dataSource" ref="driver1" />
+ 	</bean>
+ 
+ 	
+</beans>
