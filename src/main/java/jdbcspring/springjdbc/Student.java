@@ -1,7 +1,6 @@
 package jdbcspring.springjdbc;
 
 public class Student {
-	//isha bhadwi hai
 	private int id;
 	private String name;
 	private String city;
@@ -33,10 +32,5 @@ public class Student {
 		this.name = name;
 		this.city = city;
 	}
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", city=" + city + "]";
-	}
 	
-
 }
