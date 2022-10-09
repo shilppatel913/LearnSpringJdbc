@@ -1,5 +1,7 @@
 package jdbcspring.springjdbc.entities;
 
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import jdbcspring.springjdbc.Student;
@@ -25,6 +27,23 @@ public class StudentDaoImpl implements StudentDao {
 		int result=this.template.update(query,studentId);
 		return result;
 	}
+	//fetching one student with a particular id
+	public Student getStudent(int studentId) {
+		// TODO Auto-generated method stub
+		String query="select *from student where id=?";
+		RowMapperImpl rowMapper=new RowMapperImpl();
+		Student student=this.template.queryForObject(query, rowMapper,studentId);
+		return student;
+	}
+	
+	//fetching all students
+	public List<Student> getAllStudents() {
+		// TODO Auto-generated method stub
+		String query="select *from student";
+		RowMapperImpl rowMapper=new RowMapperImpl();
+		List<Student> students=this.template.query(query,rowMapper);
+		return students;
+	}
 	
 	public JdbcTemplate getTemplate() {
 		return template;
@@ -32,5 +51,6 @@ public class StudentDaoImpl implements StudentDao {
 	public void setTemplate(JdbcTemplate template) {
 		this.template = template;
 	}
+	
 
 }
